@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +15,7 @@ const Home: NextPage = () => {
         </h1>
 
         <p className="mt-3 text-2xl">
-          
+            
         </p>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
