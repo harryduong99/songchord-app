@@ -1,6 +1,7 @@
 
 const style = {
-  card: `w-full lg:max-w-full lg:flex`,
+  // card: `w-full lg:max-w-full lg:flex`,
+  card: `basis-1/3`,
   contentCard: `border border-gray-400 lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal`,
   title: `text-gray-900 font-bold text-xl mb-2`,
   description: `text-gray-700 text-base`,
@@ -13,13 +14,13 @@ const SongCard = () => {
     <div className={style.card}>
       <div className={style.contentCard}>
         <div className="mb-3">
-          <div className={style.title}>Best Mountain Trails 2020</div>
-          <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+          <a href="#" className={style.title}>Best Mountain Trails 2020</a>
+          <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque</p>
         </div>
         <div className={style.moreInfo}>
           <div className="text-sm">
-            <p className={style.author}>Tác giả: <span> Harry </span></p>
-            <p className={style.category}>Thể loại: <span> Trữ tình </span> </p>
+            <p className={style.author}>Tác giả: <a href=""><span> Harry </span></a></p>
+            <p className={style.category}>Thể loại: <a href=""><span> Trữ tình </span></a> </p>
           </div>
         </div>
       </div>
