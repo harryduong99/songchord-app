@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 const Home: NextPage = () => {
@@ -25,10 +26,7 @@ const Home: NextPage = () => {
         
         </div>
       </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        Powered by HarryDuong
-      </footer>
+      <Footer />
     </div>
   )
 }

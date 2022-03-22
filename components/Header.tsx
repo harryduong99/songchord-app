@@ -1,19 +1,19 @@
 const style = {
-    header: `w-full`,
-    nav: `flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700`,
-    navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0`,
-    logo: `flex items-center flex-shrink-0 text-gray-800 mr-16`,
-    logoName: `font-semibold text-xl tracking-tight`,
-    navRight: `menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8`,
-    links: `text-md font-bold text-blue-700 lg:flex-grow`,
-    link: `block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2`,
-    wrapSearch: `relative mx-auto text-gray-600 lg:block hidden`,
-    search: `border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none`,
-    userArea: `flex`,
-    signIn: `block text-md px-4 py-2 rounded text-blue-700 ml-2 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0`,
-    signUp: `block text-md px-4  ml-2 py-2 rounded text-blue-700 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0`,
-    hamburgerWrap: `block lg:hidden`,
-    hamburger: `flex items-center px-3 py-2 border-2 rounded text-blue-700 border-blue-700 hover:text-blue-700 hover:border-blue-700`
+  header: `w-full`,
+  nav: `flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700`,
+  navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0`,
+  logo: `flex items-center flex-shrink-0 text-gray-800 mr-16`,
+  logoName: `font-semibold text-xl tracking-tight`,
+  navRight: `menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8`,
+  links: `text-md font-bold text-blue-700 lg:flex-grow`,
+  link: `block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2`,
+  wrapSearch: `relative mx-auto text-gray-600 lg:block hidden`,
+  search: `border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none`,
+  userArea: `flex`,
+  signIn: `block text-md px-4 py-2 rounded text-blue-700 ml-2 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0`,
+  signUp: `block text-md px-4  ml-2 py-2 rounded text-blue-700 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0`,
+  hamburgerWrap: `block lg:hidden`,
+  hamburger: `flex items-center px-3 py-2 border-2 rounded text-blue-700 border-blue-700 hover:text-blue-700 hover:border-blue-700`
 }
 const Header = () => {
   return (
