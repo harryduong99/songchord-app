@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Header from '../components/Header'
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +9,8 @@ const Home: NextPage = () => {
         <title>Vietnamese Songchord</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      <Header />
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
@@ -24,7 +27,7 @@ const Home: NextPage = () => {
       </main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
-        Power by HarryDuong
+        Powered by HarryDuong
       </footer>
     </div>
   )
