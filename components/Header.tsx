@@ -43,7 +43,7 @@ const Header = () => {
                    className={style.link}>
                     Thể loại
                 </a> */}
-                <Link  href="/list/category/1">
+                <Link href="/list/category/1">
                    <div className={style.link}>Thể loại</div> 
                 </Link>
                 <a href="#responsive-header"

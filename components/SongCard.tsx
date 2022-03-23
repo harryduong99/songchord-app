@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 const style = {
   card: ``,
@@ -13,7 +14,9 @@ const SongCard = () => {
     <div className={style.card}>
       <div className={style.contentCard}>
         <div className="mb-3">
-          <a href="#" className={style.title}>Best Mountain Trails 2020</a>
+          <Link href="/detail/55">
+            <div className={style.title}>Best Mountain Trails 2020</div>
+          </Link>
           <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque</p>
         </div>
         <div className={style.moreInfo}>

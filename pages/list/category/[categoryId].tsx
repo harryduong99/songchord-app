@@ -7,7 +7,7 @@ import SongCard from '../../../components/SongCard'
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
   mainWrap: `flex w-full flex-1 flex-row items-center justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] pt-10`,
-  left: `basis-2/3 pr-6`,
+  left: `basis-2/3 mr-6`,
   right: `basis-1/3`,
   wrapCard: `mb-3`,
 }
