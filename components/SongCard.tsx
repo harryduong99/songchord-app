@@ -1,7 +1,6 @@
 
 const style = {
-  // card: `w-full lg:max-w-full lg:flex`,
-  card: `basis-1/3`,
+  card: ``,
   contentCard: `border border-gray-400 lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal`,
   title: `text-gray-900 font-bold text-xl mb-2`,
   description: `text-gray-700 text-base`,

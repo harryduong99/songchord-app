@@ -9,6 +9,7 @@ const styles = {
   mainWrap: `flex w-full flex-1 flex-col items-center justify-center lg:px-20 sm:px-10 px-5`,
   listSong: `grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-4`,
 }
+
 const Home: NextPage = () => {
   return (
     <div className={styles.pageWrap}>

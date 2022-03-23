@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const style = {
   header: `w-full`,
   nav: `flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700`,
@@ -37,10 +39,13 @@ const Header = () => {
     
         <div className={style.navRight}>
             <div className={style.links}>
-                <a href="#responsive-header"
+                {/* <a href="#responsive-header"
                    className={style.link}>
                     Thể loại
-                </a>
+                </a> */}
+                <Link  href="/list/category/1">
+                   <div className={style.link}>Thể loại</div> 
+                </Link>
                 <a href="#responsive-header"
                    className={style.link}>
                     Điệu
