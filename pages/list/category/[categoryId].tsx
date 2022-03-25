@@ -14,11 +14,20 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
-const router = useRouter()
-const { categoryId } = router.query
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ req }) => {
+      await store.dispatch(fetchSongs('harry'));
+      return {
+        props: {},
+      };
+    }
+);
 
 const Collection = () => {
-
+  const router = useRouter()
+  const { categoryId } = router.query
+  
   return (
     <div className={styles.pageWrap}>
       <Head>

@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   error: null
 };
+let songsReducer
 
 export default songsReducer = (state = initialState, action) => {
   switch(action.type) {

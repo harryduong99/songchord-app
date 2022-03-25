@@ -18,11 +18,12 @@ export const requestSongsFailure = error => ({
 })
 
 export const fetchSongs = (categoryId) => (dispatch) => {
-  dispatch(requestSongs(categoryId))
-  return fetch(`/${categoryId}`)
-    .then(response > response.json())
+  dispatch(requestSongsBegin(categoryId))
+  // return fetch(`/${categoryId}`)
+  return fetch(`https://623df5c1e8fbc4f1626a135b.mockapi.io/api/v1/songs`)
+    .then(response => response.json())
     .then(json => {
-      dispatch(receiveSongs(categoryId, json));
+      dispatch(requestSongsSuccess(categoryId, json));
       return json.songs
     })
     .catch(error => dispatch(requestSongsFailure(error)));
