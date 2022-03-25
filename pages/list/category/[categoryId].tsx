@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import SongCard from '../../../components/SongCard'
+import { fetchSongs } from '../../../store/songs/action'
+import { wrapper } from '../../../store/store'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -12,9 +14,10 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
+const router = useRouter()
+const { categoryId } = router.query
+
 const Collection = () => {
-  const router = useRouter()
-  const { categoryId } = router.query
 
   return (
     <div className={styles.pageWrap}>
