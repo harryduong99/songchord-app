@@ -9,7 +9,7 @@ export const requestSongsBegin = categoryId => ({
 
 export const requestSongsSuccess = songs => ({
   type: REQUEST_SONGS_SUCCESS,
-  payload: { songs }
+  payload: {songs}
 })
 
 export const requestSongsFailure = error => ({
@@ -17,14 +17,14 @@ export const requestSongsFailure = error => ({
   payload: { error }
 })
 
-export const fetchSongs = (categoryId) => (dispatch) => {
+export const fetchSongs = (categoryId) => async (dispatch) => {
   dispatch(requestSongsBegin(categoryId))
   // return fetch(`/${categoryId}`)
-  return fetch(`https://623df5c1e8fbc4f1626a135b.mockapi.io/api/v1/songs`)
+  return await fetch(`https://my-json-server.typicode.com/typicode/demo/posts`)
     .then(response => response.json())
     .then(json => {
-      dispatch(requestSongsSuccess(categoryId, json));
-      return json.songs
+      dispatch(requestSongsSuccess(json));
+      return json
     })
     .catch(error => dispatch(requestSongsFailure(error)));
 }

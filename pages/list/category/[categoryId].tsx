@@ -5,6 +5,8 @@ import Header from '../../../components/Header'
 import SongCard from '../../../components/SongCard'
 import { fetchSongs } from '../../../store/songs/action'
 import { wrapper } from '../../../store/store'
+import { useContext, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -14,20 +16,26 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ req }) => {
-      await store.dispatch(fetchSongs('harry'));
-      return {
-        props: {},
-      };
-    }
-);
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async ({ req }) => {
+//       await store.dispatch(fetchSongs('harry'));
+//       return {
+//         props: {},
+//       };
+//     }
+// );
 
 const Collection = () => {
   const router = useRouter()
   const { categoryId } = router.query
-  
+  const [songs, setSongs] = useState([])
+  const dispatch = useDispatch()
+  let listSong = useSelector(state => state.songsReducer.items)
+  useEffect(() => {
+    dispatch(fetchSongs(categoryId))
+  }, [])
+
   return (
     <div className={styles.pageWrap}>
       <Head>
@@ -36,26 +44,22 @@ const Collection = () => {
       </Head>
       
       <Header />
+       <main className={styles.mainWrap}>
+        {/* { isLoading ? '' :  */}
+          <div className={styles.left}>
+            {songs.map(song => {
+                <div className={styles.wrapCard}>
+                  <SongCard song={song}/>
+                </div>
+            })}
+          </div>
+        {/* } */}
 
-      <main className={styles.mainWrap}>
-        <div className={styles.left}>
-          <div className={styles.wrapCard}>
-            <SongCard />
-          </div>
-          <div className={styles.wrapCard}>
-            <SongCard />
-          </div>
-          <div className={styles.wrapCard}>
-            <SongCard />
-          </div>
-          <div className={styles.wrapCard}>
-            <SongCard />
-          </div>
-          
-        </div>
         <div className={styles.right}></div>
 
       </main>
+
+     
       <Footer />
     </div>
   )
