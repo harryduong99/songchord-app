@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
-  mainWrap: `flex w-full flex-1 flex-row items-center justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] pt-10`,
+  mainWrap: `flex w-full flex-1 flex-row items-center justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] pt-10 pb-10`,
   left: `basis-2/3 mr-6`,
   right: `basis-1/3`,
   wrapCard: `mb-3`,
@@ -28,10 +28,10 @@ const styles = {
 
 const Collection = () => {
   const router = useRouter()
-  const { categoryId } = router.query
-  const [songs, setSongs] = useState([])
   const dispatch = useDispatch()
-  let listSong = useSelector(state => state.songsReducer.items)
+
+  const { categoryId } = router.query
+  let {error, items, loading} = useSelector(state => state.songsReducer)
   useEffect(() => {
     dispatch(fetchSongs(categoryId))
   }, [])
@@ -45,15 +45,15 @@ const Collection = () => {
       
       <Header />
        <main className={styles.mainWrap}>
-        {/* { isLoading ? '' :  */}
+        { loading ? '' : 
           <div className={styles.left}>
-            {songs.map(song => {
-                <div className={styles.wrapCard}>
-                  <SongCard song={song}/>
-                </div>
-            })}
+            {items.map((song, i) => 
+              <div className={styles.wrapCard}>
+                <SongCard {...song}/>
+            </div>
+            )}
           </div>
-        {/* } */}
+        }
 
         <div className={styles.right}></div>
 

@@ -2,7 +2,7 @@ import { REQUEST_SONGS_BEGIN, REQUEST_SONGS_SUCCESS, REQUEST_SONGS_FAILURE } fro
 
 const initialState = {
   items: [],
-  loading: false,
+  loading: true,
   error: null
 };
 let songsReducer
