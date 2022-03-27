@@ -6,7 +6,7 @@ import SongCard from '../../../components/SongCard'
 import { fetchSongs } from '../../../store/songs/action'
 import { wrapper } from '../../../store/store'
 import { useContext, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -31,7 +31,7 @@ const Collection = () => {
   const dispatch = useDispatch()
 
   const { categoryId } = router.query
-  let {error, items, loading} = useSelector(state => state.songsReducer)
+  let {error, items, loading} = useSelector((state: RootStateOrAny) => state.songsReducer)
   useEffect(() => {
     dispatch(fetchSongs(categoryId))
   }, [])

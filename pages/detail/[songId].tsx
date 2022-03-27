@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Detail from '../../components/Detail'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import SongCard from '../../components/SongCard'
 import Suggestion from '../../components/Suggestion'
 
 const styles = {
@@ -43,22 +42,17 @@ const Collection = (song: any) => {
 
 export async function getStaticPaths() {
   const res = await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
-  const posts = await res.json()
-  console.log(posts)
-  const paths = posts.map((post: any) => ({
-    params: { songId: post.id.toString() },
+  const songs = await res.json()
+  const paths = songs.map((song: any) => ({
+    params: { songId: song.id.toString() },
   }))
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
   return { paths, fallback: false }
 }
 
 export async function getStaticProps( params: any) {
-  console.log(params)
   const res = await fetch('https://my-json-server.typicode.com/typicode/demo/profile')
   const song = await res.json()
-  console.log(song)
   return {
     props: {
       song,

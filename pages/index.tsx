@@ -10,7 +10,7 @@ const styles = {
   listSong: `grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-4`,
 }
 
-const Home: NextPage = () => {
+const Home:NextPage = ({songs}) => {
   return (
     <div className={styles.pageWrap}>
       <Head>
@@ -26,20 +26,28 @@ const Home: NextPage = () => {
         </h1>
 
         <div className={styles.listSong}>
-          <SongCard />
-          <SongCard />
-          <SongCard />
-          <SongCard />
-          <SongCard />
-          <SongCard />
-          <SongCard />
-          <SongCard />
+          {
+            songs.map((song: any, i: any) => 
+              <SongCard {...song} />
+            )
+          }
         </div>
 
       </main>
       <Footer />
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+  const songs = await res.json()
+
+  return {
+    props: {
+      songs,
+    },
+  }
 }
 
 export default Home
