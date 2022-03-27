@@ -5,10 +5,10 @@ const styles = {
   title: `text-4xl font-bold mb-5`,
   content: `mt-5 leading-7`,
 }
-const Detail = () => {
+const Detail = (props: any) => {
   return (
     <div>
-        <h1 className={styles.title}>Love you more than i can say</h1>
+        <h1 className={styles.title}>{props.song.name}</h1>
         <div className={styles.wrapInfo}>
           <div className={styles.infoChild}><span>Sáng tác:</span> Hary Duong <span> | </span></div>
           <div className={styles.infoChild}>Nhạc vàng <span> | </span></div>

@@ -14,7 +14,7 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
-const Collection = () => {
+const Collection = (song: any) => {
   const router = useRouter()
   const { categoryId } = router.query
 
@@ -29,7 +29,7 @@ const Collection = () => {
 
       <main className={styles.mainWrap}>
         <div className={styles.left}>
-          <Detail />
+          <Detail {...song}/>
         </div>
         <div className={styles.right}>
           <Suggestion />
@@ -40,5 +40,31 @@ const Collection = () => {
     </div>
   )
 }
+
+export async function getStaticPaths() {
+  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+  const posts = await res.json()
+  console.log(posts)
+  const paths = posts.map((post: any) => ({
+    params: { songId: post.id.toString() },
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps( params: any) {
+  console.log(params)
+  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/profile')
+  const song = await res.json()
+  console.log(song)
+  return {
+    props: {
+      song,
+    },
+  }
+}
+
 
 export default Collection

@@ -47,7 +47,7 @@ const Collection = () => {
        <main className={styles.mainWrap}>
         { loading ? '' : 
           <div className={styles.left}>
-            {items.map((song, i) => 
+            {items.map((song: any, i: any) => 
               <div className={styles.wrapCard}>
                 <SongCard {...song}/>
             </div>
