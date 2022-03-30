@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import SongCard from '../components/SongCard'
-import client from "../api/apollo-client";
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -49,13 +48,6 @@ export async function getStaticProps() {
       songs,
     },
   }
-  // const { data } = await client.query({
-  //   query: gql`
-  //     query Songs {
-     
-  //     }
-  //   `,
-  // });
 }
 
 export default Home

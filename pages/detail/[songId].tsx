@@ -4,6 +4,8 @@ import Detail from '../../components/Detail'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Suggestion from '../../components/Suggestion'
+import client from "../../api/apollo-client";
+import { gql } from "@apollo/client";
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -14,6 +16,7 @@ const styles = {
 }
 
 const Collection = (song: any) => {
+  console.log(song.data)
   const router = useRouter()
   const { categoryId } = router.query
 
@@ -28,7 +31,7 @@ const Collection = (song: any) => {
 
       <main className={styles.mainWrap}>
         <div className={styles.left}>
-          <Detail {...song}/>
+          <Detail {...song.data}/>
         </div>
         <div className={styles.right}>
           <Suggestion />
@@ -51,13 +54,29 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps( params: any) {
-  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/profile')
-  const song = await res.json()
+  const variables = {
+    title: "Minhnam",  
+  };  
+  const { data } = await client.query({
+    query: gql`
+      query getSong($title: String!){ 
+        song(title: $title) {
+            content,
+            author,
+            title,
+            category
+        }
+      }
+    `,
+    variables
+  })
+
   return {
     props: {
-      song,
+      data,
     },
   }
+
 }
 
 
