@@ -16,7 +16,7 @@ const styles = {
 }
 
 const Collection = (song: any) => {
-  console.log(song.data)
+  console.log(song)
   const router = useRouter()
   const { categoryId } = router.query
 
@@ -31,7 +31,7 @@ const Collection = (song: any) => {
 
       <main className={styles.mainWrap}>
         <div className={styles.left}>
-          <Detail {...song.data}/>
+          <Detail {...song.song}/>
         </div>
         <div className={styles.right}>
           <Suggestion />
@@ -44,36 +44,46 @@ const Collection = (song: any) => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
-  const songs = await res.json()
-  const paths = songs.map((song: any) => ({
-    params: { songId: song.id.toString() },
+  const { data } = await client.query({
+    query: gql`
+    query {
+      songIds
+    }
+    `,
+  })
+  console.log()
+  const paths = data.songIds.map((songId: any) => ({
+    params: { songId: songId },
   }))
 
   return { paths, fallback: false }
+
 }
 
 export async function getStaticProps( params: any) {
+  console.log(String(params.params.songId))
   const variables = {
-    title: "Minhnam",  
+    id: String(params.params.songId),  
   };  
-  const { data } = await client.query({
+
+  const data = await client.query({
     query: gql`
-      query getSong($title: String!){ 
-        song(title: $title) {
-            content,
-            author,
-            title,
-            category
+      query songById($id: ID!) {
+        songById(id: $id) {
+          author,
+          content,
+          title,
+          category
         }
       }
     `,
     variables
   })
 
+  let song = data.data.songById
   return {
     props: {
-      data,
+      song,
     },
   }
 

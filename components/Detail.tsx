@@ -8,15 +8,15 @@ const styles = {
 const Detail = (props: any) => {
   return (
     <div>
-        <h1 className={styles.title}>{props.song.title}</h1>
+        <h1 className={styles.title}>{props.title}</h1>
         <div className={styles.wrapInfo}>
-          <div className={styles.infoChild}><span>Sáng tác:</span> {props.song.author} <span> | </span></div>
+          <div className={styles.infoChild}><span>Sáng tác:</span> {props.author} <span> | </span></div>
           <div className={styles.infoChild}>Nhạc vàng <span> | </span></div>
-          <div className={styles.infoChild}>Điệu: {props.song.category}</div>
+          <div className={styles.infoChild}>Điệu: {props.category}</div>
         </div>
         
         <div className={styles.content}>
-          <p>{props.song.content}</p>
+          <p>{props.content}</p>
         </div>
     </div>
   )

@@ -15,7 +15,7 @@ const SongCard = (song: any) => {
     <div className={style.card}>
       <div className={style.contentCard}>
         <div className="mb-3">
-          <Link href="/detail/1">
+          <Link href="/detail/613cfd22fcc103b39ba31ebc">
             <div className={style.title}>{song.title}</div>
           </Link>
           <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque</p>
