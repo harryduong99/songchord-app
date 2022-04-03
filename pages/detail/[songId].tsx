@@ -61,7 +61,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps( params: any) {
-  console.log(String(params.params.songId))
   const variables = {
     id: String(params.params.songId),  
   };  
