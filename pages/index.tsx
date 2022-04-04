@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import SongCard from '../components/SongCard'
+import client from "../api/apollo-client";
+import { gql } from "@apollo/client";
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -40,9 +42,26 @@ const Home:NextPage = ({songs}) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
-  const songs = await res.json()
+  const variables = {
+    start: 0,
+    limit: 15
+  };  
 
+  const data = await client.query({
+    query: gql`
+      query songs($start: Int!, $limit: Int!) {
+        songs(start: $start, limit: $limit) {
+          author,
+          content,
+          title,
+          category
+        }
+      }
+    `,
+    variables
+  })
+
+  let songs = data.data.songs
   return {
     props: {
       songs,
