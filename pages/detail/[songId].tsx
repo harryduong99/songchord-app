@@ -3,9 +3,6 @@ import { useRouter } from 'next/router'
 import Detail from '../../components/Detail'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import Suggestion from '../../components/Suggestion'
-import client from "../../api/apollo-client";
-import { gql } from "@apollo/client";
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -15,11 +12,7 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
-const Collection = (song: any) => {
-  console.log(song)
-  const router = useRouter()
-  const { categoryId } = router.query
-
+const Song = (song: any) => {
   return (
     <div className={styles.pageWrap}>
       <Head>
@@ -33,9 +26,9 @@ const Collection = (song: any) => {
         <div className={styles.left}>
           <Detail {...song.song}/>
         </div>
-        <div className={styles.right}>
+        {/* <div className={styles.right}>
           <Suggestion />
-        </div>
+        </div> */}
 
       </main>
       <Footer />
@@ -43,50 +36,17 @@ const Collection = (song: any) => {
   )
 }
 
-export async function getStaticPaths() {
-  const { data } = await client.query({
-    query: gql`
-    query {
-      songIds
-    }
-    `,
-  })
-  console.log()
-  const paths = data.songIds.map((songId: any) => ({
-    params: { songId: songId },
-  }))
+export async function getServerSideProps(context: any) {
+  const data = await fetch(`http://localhost:3000/song/${context.query.songId}`)
+  .then(response => response.json())
 
-  return { paths, fallback: false }
-
-}
-
-export async function getStaticProps( params: any) {
-  const variables = {
-    id: String(params.params.songId),  
-  };  
-
-  const data = await client.query({
-    query: gql`
-      query songById($id: ID!) {
-        songById(id: $id) {
-          author,
-          content,
-          title,
-          category
-        }
-      }
-    `,
-    variables
-  })
-
-  let song = data.data.songById
+  let song = data
   return {
     props: {
       song,
     },
   }
-
 }
 
 
-export default Collection
+export default Song

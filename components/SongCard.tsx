@@ -10,20 +10,21 @@ const style = {
   category: `text-gray-600`
 }
 const SongCard = (song: any) => {
-
+  console.log(song);
+  const href = `/detail/${song._id}`;
   return (
-    <div className={style.card}>
+    <div key={song.id} className={style.card}>
       <div className={style.contentCard}>
         <div className="mb-3">
-          <Link href="/detail/613cfd22fcc103b39ba31ebc">
-            <div className={style.title}>{song.title}</div>
+          <Link href={href}>
+            <div className={style.title}><a href={href}>{song.title}</a></div>
           </Link>
-          <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque</p>
+          <p className={style.description} dangerouslySetInnerHTML={{__html: song.content.slice(0, 70) + '...'}}></p>
         </div>
         <div className={style.moreInfo}>
           <div className="text-sm">
-            <p className={style.author}>Tác giả: <a href=""><span> Harry </span></a></p>
-            <p className={style.category}>Thể loại: <a href=""><span> Trữ tình </span></a> </p>
+            <p className={style.author}>Tác giả: <a href=""><span> {song.author} </span></a></p>
+            <p className={style.category}>Thể loại: <a href=""><span> {song.category} </span></a> </p>
           </div>
         </div>
       </div>

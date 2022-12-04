@@ -20,11 +20,11 @@ const style = {
 const Header = () => {
   return (
     <header className={style.header}>
-      <nav
+    <nav
         className={style.nav}>
         <div className={style.navLeft}>
             <div className={style.logo}>
-                <span className={style.logoName}>HopAmNhanh</span>
+                <span className={style.logoName}><a href=""> HopAmNhanh</a> </span>
             </div>
             <div className={style.hamburgerWrap}>
                 <button
@@ -43,13 +43,13 @@ const Header = () => {
                    className={style.link}>
                     Thể loại
                 </a> */}
-                <Link href="/list/category/1">
+                {/* <Link href="/list/category/1">
                    <div className={style.link}>Thể loại</div> 
                 </Link>
                 <a href="#responsive-header"
                    className={style.link}>
                     Điệu
-                </a>
+                </a> */}
             </div>
             <div className={style.wrapSearch}>
                 <input
@@ -57,7 +57,7 @@ const Header = () => {
                     type="search" name="search" placeholder="Search" 
                 />
             </div>
-            <div className={style.userArea}>
+            {/* <div className={style.userArea}>
                 <a href="#"
                    className={style.signIn}>Sign in
                 </a>
@@ -65,7 +65,7 @@ const Header = () => {
                 <a href="#"
                    className={style.signUp}>Login
                 </a>
-            </div>
+            </div> */}
         </div>
     
     </nav>

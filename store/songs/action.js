@@ -19,7 +19,6 @@ export const requestSongsFailure = error => ({
 
 export const fetchSongs = (categoryId) => async (dispatch) => {
   dispatch(requestSongsBegin(categoryId))
-  // return fetch(`/${categoryId}`)
   return await fetch(`https://my-json-server.typicode.com/typicode/demo/posts`)
     .then(response => response.json())
     .then(json => {
