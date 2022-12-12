@@ -84,10 +84,10 @@ const Detail = (props: any) => {
 
   return (
     <div>
-      <h1 className={styles.title}>{props.title}</h1>
+      <h1 className={styles.title}>{props.song.title}</h1>
       <div className={styles.wrapInfo}>
-        <div className={styles.infoChild}><span>Sáng tác:</span> <b>{props.author}</b><span> | </span></div>
-        <div className={styles.infoChild}>Thể loại: <b>{props.category}</b></div>
+        <div className={styles.infoChild}><span>Sáng tác:</span> <b>{props.song.author}</b><span> | </span></div>
+        <div className={styles.infoChild}>Thể loại: <b>{props.song.category}</b></div>
         <div>
           <span className={styles.downTone} onClick={downTone}>Giảm tone &#8595;</span>
           <span className={styles.upTone} onClick={upTone}>Tăng tone &#8593;</span>

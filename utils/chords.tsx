@@ -22,15 +22,19 @@ export const parsingChordName = (chordName: string) => {
  * 
  * change: 1 if a half tone, for example, change 3 with main chord is C => return Eb
  */
-export const scaleMap = (mainChordName: string, change: number) => {
+export const scaleMap = (chordName: string, change: number) => {
+  const key = chordName.charAt(0);
   const map = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
 
-  const rawIndex = map.indexOf(mainChordName) + change;
+  const rawIndex = map.indexOf(key) + change;
   let targetIndex = rawIndex;
   if (rawIndex > 11) {
-    targetIndex =  map.indexOf(mainChordName) + change - 12;
+    targetIndex =  map.indexOf(key) + change - 12;
   } else if (rawIndex < 0) {
-    targetIndex =  map.indexOf(mainChordName) + change + 12;
+    targetIndex =  map.indexOf(key) + change + 12;
+  }
+  if (chordName.length > 1) {
+    return map[targetIndex] + chordName.slice(1);
   }
   return map[targetIndex];
 }
