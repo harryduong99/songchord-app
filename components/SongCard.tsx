@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const style = {
   card: ``,
-  contentCard: `border border-gray-400 lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal`,
+  contentCard: `border border-gray-400 lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal h-full`,
   title: `text-gray-900 font-bold text-xl mb-2`,
   description: `text-gray-700 text-base`,
   moreInfo: `flex items-center`,
@@ -10,7 +10,6 @@ const style = {
   category: `text-gray-600`
 }
 const SongCard = (song: any) => {
-  console.log(song);
   const href = `/detail/${song._id}`;
   return (
     <div key={song.id} className={style.card}>

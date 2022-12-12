@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import Detail from '../../components/Detail'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import Chord from '../../components/Chord'
+import { useEffect, useState } from 'react'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
@@ -13,6 +15,34 @@ const styles = {
 }
 
 const Song = (song: any) => {
+  const [changeToneChords, setChangeToneChords] = useState({});
+  const [chords, setChords] = useState([]);
+  
+  useEffect(() => {
+    let listChords = [];
+    const elements = song.song.content.split(/[| ]/);
+    for (const e of elements) {
+      if (e.includes("[") && e.slice(-1) === "]" && e.charAt(0) === "[") {
+        let pureChord = e.slice(1,-1);
+        if (!listChords.includes(pureChord)) {
+          listChords.push(pureChord);
+        }
+      }
+    }
+
+    setChords(listChords);
+  }, []);
+
+
+  const handleChangeTone = (newChords: string[]) => {
+    setChords(newChords);
+  }
+
+  useEffect(() => {
+    console.log(changeToneChords);
+  }, [changeToneChords]);
+
+
   return (
     <div className={styles.pageWrap}>
       <Head>
@@ -24,11 +54,11 @@ const Song = (song: any) => {
 
       <main className={styles.mainWrap}>
         <div className={styles.left}>
-          <Detail {...song.song}/>
+          <Detail handleChangeTone={handleChangeTone} song={song.song} chord={chords}/>
         </div>
-        {/* <div className={styles.right}>
-          <Suggestion />
-        </div> */}
+        <div className={styles.right}>
+          <Chord song={song.song} chord={chords}/>
+        </div>
 
       </main>
       <Footer />
@@ -47,6 +77,5 @@ export async function getServerSideProps(context: any) {
     },
   }
 }
-
 
 export default Song
