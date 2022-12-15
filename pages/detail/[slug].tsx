@@ -15,6 +15,7 @@ const styles = {
 }
 
 const Song = (song: any) => {
+  console.log(song);
   const [changeToneChords, setChangeToneChords] = useState({});
   const [chords, setChords] = useState([]);
   
@@ -48,6 +49,7 @@ const Song = (song: any) => {
       <Head>
         <title>Vietnamese Songchord</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       
       <Header />
@@ -67,9 +69,13 @@ const Song = (song: any) => {
 }
 
 export async function getServerSideProps(context: any) {
-  const data = await fetch(`http://localhost:3000/song/${context.query.songId}`)
+  // const data = await fetch(`http://localhost:3000/song/${context.query.songId}`)
+  // .then(response => response.json())
+
+  const data = await fetch(`http://localhost:3000/song/slug/${context.query.slug}`)
   .then(response => response.json())
 
+  console.log(data);
   let song = data
   return {
     props: {

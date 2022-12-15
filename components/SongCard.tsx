@@ -10,7 +10,7 @@ const style = {
   category: `text-gray-600`
 }
 const SongCard = (song: any) => {
-  const href = `/detail/${song._id}`;
+  const href = `/detail/${song.slug}`;
   return (
     <div key={song.id} className={style.card}>
       <div className={style.contentCard}>
