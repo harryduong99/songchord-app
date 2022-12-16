@@ -8,9 +8,9 @@ import { useEffect, useState } from 'react'
 
 const styles = {
   pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
-  mainWrap: `flex w-full flex-1 flex-row justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] pt-10 pb-10`,
-  left: `basis-2/3 p-4 mr-6 bg-white`,
-  right: `basis-1/3 bg-white p-4`,
+  mainWrap: `md:flex w-full md:flex-1 md:flex-row justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] md:pt-10 pt-5 md:pb-10 pb-5`,
+  left: `md:basis-2/3 p-4 md:mr-6 bg-white`,
+  right: `md:basis-1/3 bg-white p-4 mt-3 md:mt-0`,
   wrapCard: `mb-3`,
 }
 
@@ -47,9 +47,10 @@ const Song = (song: any) => {
   return (
     <div className={styles.pageWrap}>
       <Head>
-        <title>Vietnamese Songchord</title>
+        <title>{song.song.title} | Hợp âm xưa</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={song.song.content.slice(0, 150) + '...'} />
       </Head>
       
       <Header />
@@ -69,10 +70,7 @@ const Song = (song: any) => {
 }
 
 export async function getServerSideProps(context: any) {
-  // const data = await fetch(`http://localhost:3000/song/${context.query.songId}`)
-  // .then(response => response.json())
-
-  const data = await fetch(`http://localhost:3000/song/slug/${context.query.slug}`)
+  const data = await fetch(`${process.env.API_CLIENT}/song/slug/${context.query.slug}`)
   .then(response => response.json())
 
   console.log(data);

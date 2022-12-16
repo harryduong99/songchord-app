@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { scaleMap } from "../utils/chords";
 
 const styles = {
-  wrapInfo: `flex flex-row`,
-  infoChild: `mr-2`,
+  wrapInfo: `md:flex md:flex-row`,
+  infoChild: `mr-2 inline-block md:block`,
   title: `text-4xl font-bold mb-5`,
   content: `mt-5 leading-7`,
   chord: `text-2xl`,
@@ -87,8 +87,8 @@ const Detail = (props: any) => {
       <h1 className={styles.title}>{props.song.title}</h1>
       <div className={styles.wrapInfo}>
         <div className={styles.infoChild}><span>Sáng tác:</span> <b>{props.song.author}</b><span> | </span></div>
-        <div className={styles.infoChild}>Thể loại: <b>{props.song.category}</b></div>
-        <div>
+        <div className={styles.infoChild}>Thể loại: <b>{props.song.category}</b> | </div>
+        <div className={styles.infoChild}>
           <span className={styles.downTone} onClick={downTone}>Giảm tone &#8595;</span>
           <span className={styles.upTone} onClick={upTone}>Tăng tone &#8593;</span>
         </div>

@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 const style = {
   header: `w-full`,
-  nav: `flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700`,
-  navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0`,
+  nav: `flex items-center justify-between flex-wrap bg-white md:py-4 py-0 lg:px-12 shadow border-solid md:border-t-2 border-blue-700`,
+  navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 pt-2 md:pt-0 border-solid border-b-2 border-gray-300 md:pb-5 pb-3 lg:pb-0`,
   logo: `flex items-center flex-shrink-0 text-gray-800 mr-16`,
   logoName: `font-semibold text-xl tracking-tight`,
   navRight: `menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8`,
@@ -24,9 +24,9 @@ const Header = () => {
         className={style.nav}>
         <div className={style.navLeft}>
             <div className={style.logo}>
-                <Link href={'/'}><span className={style.logoName}><a href=""> HopAmNhanh</a> </span></Link>
+                <Link href={'/'}><span className={style.logoName}><a href=""> HopAmXua</a> </span></Link>
             </div>
-            <div className={style.hamburgerWrap}>
+            {/* <div className={style.hamburgerWrap}>
                 <button
                     id="nav"
                     className={style.hamburger}>
@@ -34,7 +34,7 @@ const Header = () => {
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
                     </svg>
                 </button>
-            </div>
+            </div> */}
         </div>
     
         <div className={style.navRight}>

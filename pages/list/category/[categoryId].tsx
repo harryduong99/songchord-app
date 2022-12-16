@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from 'react'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 
 const styles = {
-  pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
+  pageWrap: `flex min-h-screen flex-col items-center justify-center md:py-2`,
   mainWrap: `flex w-full flex-1 flex-row items-center justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] pt-10 pb-10`,
   left: `basis-2/3 mr-6`,
   right: `basis-1/3`,
