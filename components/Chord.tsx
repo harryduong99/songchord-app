@@ -45,7 +45,6 @@ const Chords = (props: any) => {
         suffix = chord.slice(1,0);
       }
     }
-    console.log(key);
     if (chordDefinitions.chords[key] === undefined) {
       return;
     }

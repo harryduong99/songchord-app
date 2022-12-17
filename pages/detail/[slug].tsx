@@ -7,16 +7,16 @@ import Chord from '../../components/Chord'
 import { useEffect, useState } from 'react'
 
 const styles = {
-  pageWrap: `flex min-h-screen flex-col items-center justify-center py-2`,
-  mainWrap: `md:flex w-full md:flex-1 md:flex-row justify-center lg:px-20 sm:px-10 px-5 bg-[#f5f6fa] md:pt-10 pt-5 md:pb-10 pb-5`,
+  pageWrap: `flex min-h-screen flex-col items-center justify-center`,
+  mainWrap: `md:flex w-full  max-w-7xl md:flex-1 md:flex-row  lg:px-20 sm:px-10 px-5  md:pt-10 pt-5 md:pb-10 pb-5`,
+  content: `w-full bg-[#f5f6fa] flex justify-center`,
   left: `md:basis-2/3 p-4 md:mr-6 bg-white`,
-  right: `md:basis-1/3 bg-white p-4 mt-3 md:mt-0`,
+  right: `md:basis-1/3 bg-white p-4 mt-4 md:mt-0`,
   wrapCard: `mb-3`,
 }
 
 const Song = (song: any) => {
   console.log(song);
-  const [changeToneChords, setChangeToneChords] = useState({});
   const [chords, setChords] = useState([]);
   
   useEffect(() => {
@@ -39,11 +39,6 @@ const Song = (song: any) => {
     setChords(newChords);
   }
 
-  useEffect(() => {
-    console.log(changeToneChords);
-  }, [changeToneChords]);
-
-
   return (
     <div className={styles.pageWrap}>
       <Head>
@@ -54,16 +49,16 @@ const Song = (song: any) => {
       </Head>
       
       <Header />
-
-      <main className={styles.mainWrap}>
-        <div className={styles.left}>
-          <Detail handleChangeTone={handleChangeTone} song={song.song} chord={chords}/>
-        </div>
-        <div className={styles.right}>
-          <Chord song={song.song} chord={chords}/>
-        </div>
-
-      </main>
+      <div className={styles.content}>
+        <main className={styles.mainWrap}>
+          <div className={styles.left}>
+            <Detail handleChangeTone={handleChangeTone} song={song.song} chord={chords}/>
+          </div>
+          <div className={styles.right}>
+            <Chord song={song.song} chord={chords}/>
+          </div>
+        </main>
+      </div>
       <Footer />
     </div>
   )

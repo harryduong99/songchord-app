@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const style = {
   header: `w-full`,
-  nav: `flex items-center justify-between flex-wrap bg-white md:py-4 py-0 lg:px-12 shadow border-solid md:border-t-2 border-blue-700`,
+  nav: `flex items-center justify-between flex-wrap bg-white md:py-4 py-0 lg:px-12 shadow border-solid md:border-t-2`,
   navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 pt-2 md:pt-0 border-solid border-b-2 border-gray-300 md:pb-5 pb-3 lg:pb-0`,
   logo: `flex items-center flex-shrink-0 text-gray-800 mr-16`,
   logoName: `font-semibold text-xl tracking-tight`,
