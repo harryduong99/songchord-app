@@ -14,7 +14,6 @@ const styles = {
 }
 
 const Home:NextPage = ({songs, page = 0}) => {
-  console.log(songs);
   const nextPage = () => {
     Router.push({
       pathname: '/',

@@ -16,7 +16,6 @@ const styles = {
 }
 
 const Song = (song: any) => {
-  console.log(song);
   const [chords, setChords] = useState([]);
   
   useEffect(() => {
@@ -68,7 +67,6 @@ export async function getServerSideProps(context: any) {
   const data = await fetch(`${process.env.API_CLIENT}/song/slug/${context.query.slug}`)
   .then(response => response.json())
 
-  console.log(data);
   let song = data
   return {
     props: {
