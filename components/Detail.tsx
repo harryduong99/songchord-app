@@ -8,7 +8,8 @@ const styles = {
   content: `mt-5 leading-7`,
   chord: `text-2xl`,
   upTone: `bg-violet-500 hover:bg-violet-600 cursor-pointer focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-2 py-1 text-xs leading-5 rounded-full font-light text-white mr-2`,
-  downTone: `bg-green-500 hover:bg-green-600 cursor-pointer focus:outline-none focus:ring focus:ring-green-300 active:bg-green-700 px-2 py-1 text-xs leading-5 rounded-full font-light text-white mr-2`
+  downTone: `bg-green-500 hover:bg-green-600 cursor-pointer focus:outline-none focus:ring focus:ring-green-300 active:bg-green-700 px-2 py-1 text-xs leading-5 rounded-full font-light text-white mr-2`,
+  bg: `bg-white p-4`
 }
 const Detail = (props: any) => {
   const [htmlContent, setHtmlContent] = useState('');
@@ -83,7 +84,7 @@ const Detail = (props: any) => {
   }
 
   return (
-    <div>
+    <div className={styles.bg}>
       <h1 className={styles.title}>{props.song.title}</h1>
       <div className={styles.wrapInfo}>
         <div className={styles.infoChild}><span>Sáng tác:</span> <b>{props.song.author}</b><span> | </span></div>
