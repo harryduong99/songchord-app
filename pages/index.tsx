@@ -38,6 +38,7 @@ const Home:NextPage<{songs: object[], page: number}> = ({songs, page = 0}) => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Hợp âm xưa | Hợp âm guitar cho bài hát, tiện lợi, chính xác" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFR9ER6QTC"></script>
       </Head>
       
       <Header />
