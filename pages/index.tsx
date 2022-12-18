@@ -13,11 +13,11 @@ const styles = {
   simplePagi: `d-flex text-center p-4 mt-4`
 }
 
-const Home:NextPage = ({songs, page = 0}) => {
+const Home:NextPage<{songs: object[], page: number}> = ({songs, page = 0}) => {
   const nextPage = () => {
     Router.push({
       pathname: '/',
-      query: { page: parseInt(page) + 1 },
+      query: { page: page + 1 },
     })
   }
   const prevPage = () => {
@@ -27,7 +27,7 @@ const Home:NextPage = ({songs, page = 0}) => {
 
     Router.push({
       pathname: '/',
-      query: { page: parseInt(page) - 1 },
+      query: { page: page - 1 },
     })
   }
 
@@ -37,7 +37,7 @@ const Home:NextPage = ({songs, page = 0}) => {
         <title>Hợp âm xưa</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Hợp âm xưa | Hợp âm nhanh cho bài hát, tiện lợi, chính xác" />
+        <meta name="description" content="Hợp âm xưa | Hợp âm guitar cho bài hát, tiện lợi, chính xác" />
       </Head>
       
       <Header />
@@ -69,7 +69,7 @@ const Home:NextPage = ({songs, page = 0}) => {
 }
 
 export async function getServerSideProps(context: any) {
-  const page = context.query.page ?? 0;
+  const page: number = context.query.page ?? 0;
   const perPage = 12;
 
   const data = await fetch(`${process.env.API_CLIENT}/song?page=${page}&per_page=${perPage}`)

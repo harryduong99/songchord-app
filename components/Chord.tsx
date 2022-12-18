@@ -26,9 +26,9 @@ const Chords = (props: any) => {
 
   const chords: string[] = props.chord;
 
-  let mapper = {};
+  let mapper: { [key: string]: string | object; } = {};
 
-  const renderChords = chords.map(chord => {
+  const renderChords = chords.map((chord: string) => {
     let key = chord.charAt(0);
     let suffix = 'major';
     if (chord.length > 1) {
@@ -45,11 +45,13 @@ const Chords = (props: any) => {
         suffix = chord.slice(1,0);
       }
     }
-    if (chordDefinitions.chords[key] === undefined) {
+
+    const chordList: { [key: string]: { [key: string]: string | object[]; }[]; } = chordDefinitions.chords;
+    if (chordList[key] === undefined) {
       return;
     }
     let targetChord;
-    for (const sChord of chordDefinitions.chords[key]) {
+    for (const sChord of chordList[key]) {
       if (sChord.suffix === suffix) {
         targetChord = sChord;
         mapper[chord] = targetChord.positions[0];
@@ -63,7 +65,6 @@ const Chords = (props: any) => {
               />
               <h3 className={styles.chordName}>{chord}</h3>
           </div>
-      
         )
       }
     }
