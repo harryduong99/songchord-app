@@ -16,16 +16,6 @@ const styles = {
   wrapCard: `mb-3`,
 }
 
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   (store) =>
-//     async ({ req }) => {
-//       await store.dispatch(fetchSongs('harry'));
-//       return {
-//         props: {},
-//       };
-//     }
-// );
-
 const Collection = () => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -50,7 +40,7 @@ const Collection = () => {
             {items.map((song: any, i: any) => 
               <div className={styles.wrapCard}>
                 <SongCard {...song}/>
-            </div>
+              </div>
             )}
           </div>
         }
