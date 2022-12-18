@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const styles = {
   wrapList: `mt-4 bg-white p-4 flex`,
   list: ``,
-  item: `text-sm mb-1`,
+  item: `mb-1`,
   left: `basis-1/2 p-2`,
   right: `basis-1/2 p-2`,
   title: `font-medium text-xl mb-1`,
