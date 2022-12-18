@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import Detail from '../../components/Detail'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
