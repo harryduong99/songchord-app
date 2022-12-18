@@ -1,4 +1,4 @@
-const DOMAIN_NAME = ''
+const DOMAIN_NAME = process.env.APP_DOMAIN;
 
 function generateSiteMap(songs) {
   console.log(songs);
