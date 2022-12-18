@@ -24,7 +24,7 @@ const Header = () => {
         className={style.nav}>
         <div className={style.navLeft}>
             <div className={style.logo}>
-                <Link href={'/'}><span className={style.logoName}><a href=""> HopAmXua</a> </span></Link>
+                <Link href={'/'}><span className={style.logoName}> HopAmXua</span></Link>
             </div>
             {/* <div className={style.hamburgerWrap}>
                 <button

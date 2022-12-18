@@ -24,8 +24,8 @@ const SongCard = (song: any) => {
         </div>
         <div className={style.moreInfo}>
           <div className="text-sm">
-            <p className={style.author}>Tác giả: <a href=""><span> {song.author} </span></a></p>
-            <p className={style.category}>Thể loại: <a href=""><span> {song.category} </span></a> </p>
+            <p className={style.author}>Tác giả: <span> {song.author} </span></p>
+            <p className={style.category}>Thể loại: <span> {song.category} </span></p>
           </div>
         </div>
       </div>
