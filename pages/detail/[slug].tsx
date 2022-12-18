@@ -16,10 +16,10 @@ const styles = {
 }
 
 const Song = (song: any) => {
-  const [chords, setChords] = useState([]);
+  const [chords, setChords] = useState<string[]>([]);
   
   useEffect(() => {
-    let listChords = [];
+    let listChords: string[] = [];
     const elements = song.song.content.split(/[| ]/);
     for (const e of elements) {
       if (e.includes("[") && e.slice(-1) === "]" && e.charAt(0) === "[") {

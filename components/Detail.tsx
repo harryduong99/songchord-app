@@ -21,8 +21,8 @@ const Detail = (props: any) => {
   }
 
   const markContent = (content: string, elements: string[]) => {
-    let newChangeToneChords = {};
-    let newChords = [];
+    let newChangeToneChords: { [key: string]: string; } = {};
+    let newChords: string[] = [];
     elements.map(e => {
       let markHighlight = e;
       let pureChord;
