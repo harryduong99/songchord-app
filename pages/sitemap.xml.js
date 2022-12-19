@@ -1,7 +1,6 @@
 const DOMAIN_NAME = process.env.APP_DOMAIN;
 
 function generateSiteMap(songs) {
-  console.log(songs);
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${songs
@@ -11,7 +10,6 @@ function generateSiteMap(songs) {
             <loc>${`${DOMAIN_NAME}/detail/${slug}`}</loc>
           </url>`
       })}
-      .join('')}
   </urlset>
 `;
 }
