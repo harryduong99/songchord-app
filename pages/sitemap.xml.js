@@ -9,7 +9,8 @@ function generateSiteMap(songs) {
           <url>
             <loc>${`${DOMAIN_NAME}/detail/${slug}`}</loc>
           </url>`
-      })}
+      })
+    }
   </urlset>
 `;
 }
