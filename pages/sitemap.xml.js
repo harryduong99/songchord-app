@@ -10,7 +10,7 @@ function generateSiteMap(songs) {
             <lastmod>2022-12-12</lastmod>
           </url>
           `
-    })}
+    }).join('')}
   </urlset>
 `
 }
