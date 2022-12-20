@@ -41,7 +41,7 @@ const Song = (props: any) => {
   return (
     <div className={styles.pageWrap}>
       <Head>
-        <title>{props.song.title} | Hợp âm xưa</title>
+        <title>Hợp âm {props.song.title} - {props.song.author}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={props.song.content.slice(0, 150) + '...'} />
