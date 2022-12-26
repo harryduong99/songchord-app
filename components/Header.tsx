@@ -5,7 +5,7 @@ const style = {
   nav: `flex items-center justify-between flex-wrap bg-white md:py-4 py-0 lg:px-12 shadow border-solid md:border-t-2`,
   navLeft: `flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 pt-2 md:pt-0 border-solid border-b-2 border-gray-300 md:pb-5 pb-3 lg:pb-0`,
   logo: `flex items-center flex-shrink-0 text-gray-800 mr-16`,
-  logoName: `font-semibold text-xl tracking-tight`,
+  logoName: `font-semibold text-xl tracking-tight cursor-pointer`,
   navRight: `menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8`,
   links: `text-md font-bold text-blue-700 lg:flex-grow`,
   link: `block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2`,
