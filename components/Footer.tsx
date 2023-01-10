@@ -7,6 +7,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div>Powered by HopAmXua</div>
+      <div>hopamxua@gmail.com</div>
       <div className={styles.bottom}>
         <span>Hợp âm xưa | Hợp âm đơn giản | Hợp âm đàn guitar</span>
       </div>
