@@ -13,11 +13,11 @@ const styles = {
   simplePagi: `d-flex text-center p-4 mt-4`
 }
 
-const Home:NextPage<{songs: object[], page: number}> = ({songs, page = 0}) => {
+const Home:NextPage<{songs: object[], page: any}> = ({songs, page = 0}) => {
   const nextPage = () => {
     Router.push({
       pathname: '/',
-      query: { page: page + 1 },
+      query: { page: parseInt(page) + 1 },
     })
   }
   const prevPage = () => {
@@ -27,7 +27,7 @@ const Home:NextPage<{songs: object[], page: number}> = ({songs, page = 0}) => {
 
     Router.push({
       pathname: '/',
-      query: { page: page - 1 },
+      query: { page:  parseInt(page) - 1 },
     })
   }
 
